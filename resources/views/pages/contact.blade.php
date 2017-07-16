@@ -1,87 +1,24 @@
-<!doctype html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Contact</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Contact
-                </div>
+@extends("main")
+@section("title","Contact")
+@section("content")
+  <div class="row">
+    <div class="col-md-12">
+        <h1>Contact Me</h1>
+        <form>
+            <div class="form-group">
+                <label for="txtemail">Email:</label>
+                <input type="text" id="txtemail" name="txtemail" class="form-control">
             </div>
-        </div>
-    </body>
-</html>
+            <div class="form-group">
+                <label for="txtsubject">Subjet:</label>
+                <input type="text" id="txtsubject" name="txtsubject" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="txtmessage">Message:</label>
+                <textarea type="text" id="txtmessage" name="txtmessage" class="form-control" placeholder="Type your message here..."></textarea>
+            </div>
+            <input type="Subjet" value="Submit Message" class="btn btn-success">
+        </form>
+    </div>
+  </div>
+@endsection

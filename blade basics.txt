@@ -1,0 +1,8 @@
+blade codes starts with @
+install blade to sublime
+
+1. https://packagecontrol.io/installation
+2. ctrl + ` then paste
+3. tools > command pallete
+4. search for package then select install  package
+5. select laravel blade
