@@ -25,8 +25,11 @@
 		  		<td>{{ substr($post->body, 0,5) }} {{ strlen($post->body) > 5 ? "..." : "" }} </td>
 		  		<td>{{ $post->created_at }}</td>
 		  		<td>
-		  			<a href="{{ route("posts.show",$post->id) }}" class="btn btn-default btn-sm">View</a>
-		  			<a href="{{ route("posts.edit",$post->id) }}" class="btn btn-default btn-sm">Edit</a>
+            {!! Form::open(["route" => ["posts.destroy", $post->id], "method"=>"DELETE"]) !!}
+              {{ Form::submit("Delete",["class"=>"btn btn-default btn-sm in-line"]) }}
+            {!! Form::close() !!}
+            <a href="{{ route("posts.show",$post->id) }}" class="btn btn-default btn-sm">View</a>
+            <a href="{{ route("posts.edit",$post->id) }}" class="btn btn-default btn-sm">Edit</a
 		  		</td>
 		  	</tr>
   		@endforeach

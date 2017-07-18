@@ -15,6 +15,7 @@
         <div class="post">
           <h3>Title</h3>
           <p>Post Content</p>
+          <a href="{{ route("posts.index") }}">View all posts</a>
         </div>
     </div>
     <div class="col-md-3 col-md-offset-1">

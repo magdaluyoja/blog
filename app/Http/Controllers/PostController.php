@@ -101,7 +101,9 @@ class PostController extends Controller
         $post->body = $request->input("body");
 
         $post->save();
+
         Session::flash("success","The post was successfully updated.");
+
         return redirect()->route("posts.show", $post->id);
     }
 
@@ -113,6 +115,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->delete();
+
+        Session::flash("success","Post was successfully deleted.");
+        return redirect()->route("posts.index");
     }
 }
