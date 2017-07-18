@@ -12,6 +12,13 @@ then add to require
 For Validations
 https://laravel.com/docs/5.4/validation#available-validation-rules
 
+
+
+Flash Messages
+
+Session::flash
+Session::put
+
 Command	Description
 $table->bigIncrements('id');	Incrementing ID (primary key) using a "UNSIGNED BIG INTEGER" equivalent.
 $table->bigInteger('votes');	BIGINT equivalent for the database.

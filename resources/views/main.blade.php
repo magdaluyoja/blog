@@ -3,6 +3,7 @@
   @include("partials._head")
   <body> 
     @include("partials._topnav")
+    @include("partials._messages")
     <div class="container">
       @yield("content")
     </div> <!-- end of container -->

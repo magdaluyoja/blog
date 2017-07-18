@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Post;
+use Session;
 class PostController extends Controller
 {
     /**
@@ -16,7 +17,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+
+        return view("posts.index")->with("posts",$posts);
     }
 
     /**
@@ -48,7 +51,7 @@ class PostController extends Controller
         $post->body = $request->txtbody;
 
         $post->save();
-
+        Session::flash("success","The blog was successfully saved.");
         return redirect()->route("posts.show", $post->id);
     }
 
@@ -60,7 +63,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $posts = Post::find($id);
+        return view("posts.show")->with("post",$posts);
     }
 
     /**
@@ -71,7 +75,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+
+        return view("posts.edit")->with("post",$post);
     }
 
     /**
@@ -83,7 +89,20 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //validate the data
+        $this->validate($request, array(
+                "title"=>"required|max:225",
+                "body"=>"required|max:225"
+            ));
+        //store in the database
+        $post = Post::find($id);
+
+        $post->title = $request->input("title");
+        $post->body = $request->input("body");
+
+        $post->save();
+        Session::flash("success","The post was successfully updated.");
+        return redirect()->route("posts.show", $post->id);
     }
 
     /**
