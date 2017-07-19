@@ -26,6 +26,11 @@
                 {!! Form::close() !!}
     			</div>
     		</div>
+            <div class="row">
+                <div class="col-sm-12">
+                    {!! Html::linkRoute("posts.index","<< See All Posts",[], array("class"=>"btn btn-primary btn-block form-spacing-top")) !!}
+                </div>
+            </div>
     	</div>
     </div>
     <a href="{{ route("posts.index") }}">View all posts</a>

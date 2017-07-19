@@ -18,8 +18,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderby("id","desc")->paginate(1);
-
-        return view("posts.index")->with("posts",$posts);
+        $paging = $posts->currentPage()."of".$posts->total();
+        return view("posts.index")->with("posts",$posts)->with("paging",$paging);
     }
 
     /**

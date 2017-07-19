@@ -29,7 +29,7 @@
               {{ Form::submit("Delete",["class"=>"btn btn-default btn-sm in-line"]) }}
             {!! Form::close() !!}
             <a href="{{ route("posts.show",$post->id) }}" class="btn btn-default btn-sm">View</a>
-            <a href="{{ route("posts.edit",$post->id) }}" class="btn btn-default btn-sm">Edit</a
+            <a href="{{ route("posts.edit",$post->id) }}" class="btn btn-default btn-sm">Edit</a>
 		  		</td>
 		  	</tr>
   		@endforeach
@@ -37,5 +37,7 @@
   </table>
   <div class="text-center">
     {!! $posts->links() !!}
+    <br>
+    {{ "Page: ".$paging }}
   </div>
 @endsection

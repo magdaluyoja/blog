@@ -12,14 +12,16 @@
   </div><!-- End of Row-->
   <div class="row">
     <div class="col-md-8">
-        <div class="post">
-          <h3>Title</h3>
-          <p>Post Content</p>
-          <a href="{{ route("posts.index") }}">View all posts</a>
+        @foreach($posts as $post)
+          <div class="post">
+          <h3>{{ $post->title }}</h3>
+          <p>{{ $post->body }}</p>
         </div>
+        @endforeach
     </div>
     <div class="col-md-3 col-md-offset-1">
         Sidebar
     </div>
+    <a href="{{ route("posts.index") }}">View all posts</a>
   </div>
 @endsection
