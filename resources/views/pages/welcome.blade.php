@@ -16,12 +16,12 @@
           <div class="post">
           <h3>{{ $post->title }}</h3>
           <p>{{ $post->body }}</p>
+          <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-primary">View Post</a>
         </div>
         @endforeach
     </div>
     <div class="col-md-3 col-md-offset-1">
         Sidebar
     </div>
-    <a href="{{ route("posts.index") }}">View all posts</a>
   </div>
 @endsection

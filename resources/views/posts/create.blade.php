@@ -8,6 +8,10 @@
 			{{ Form::label("txttitle","Title :") }}
 			{{ Form::text("txttitle", null, array('class' => "form-control", "required"=>"","maxlength=10")) }}
 			
+			{{ Form::label("slug","Slug :") }}
+			{{ Form::text("slug", null, array('class' => "form-control", "required"=>"","minlength=5","maxlength=255")) }}
+
+
 			{{ Form::label("txtbody","Body :") }}
 			{{ Form::textarea("txtbody", null, array('class' => "form-control", "required"=>"")) }}
 
