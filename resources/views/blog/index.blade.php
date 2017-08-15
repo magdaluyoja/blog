@@ -7,7 +7,7 @@
           <div class="post">
           <h3>{{ $post->title }}</h3>
           <p>{{ $post->body }}</p>
-          <a href="{{ route('posts.show',$post->id) }}" class="btn btn-primary">View Post</a>
+          <a href="{{ url('blog/'.$post->id) }}" class="btn btn-primary">View Post</a>
         </div>
         @endforeach
         <div class="text-center">

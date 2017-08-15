@@ -12,8 +12,8 @@ class BlogController extends Controller
     	$posts = Post::paginate(1);
     	return view('blog.index')->with('posts',$posts);
     }
-    public function getSingle($slug){
-    	$post = Post::where('slug','=',$slug)->first();
+    public function getSingle($id){
+    	$post = Post::where('id','=',$id)->first();
     	return view('blog.single')->with('post',$post);
     }
 }
